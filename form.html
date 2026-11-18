@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>План прогулки — На тропе · V02</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>На тропе · V02</h1>
+
+    <nav>
+      <a href="index.html">Главная</a>
+      <a href="catalog.html">Каталог</a>
+      <a href="form.html">Форма</a>
+    </nav>
+  </header>
+
+  <main class="page">
+    <h1>План прогулки</h1>
+    <p>Учебная форма. Данные пока не сохраняются.</p>
+
+    <form class="request-form" method="get" novalidate>
+      <fieldset>
+        <legend>Параметры прогулки</legend>
+        
+        <div class="form-field">
+          <label for="quantity">Количество участников</label>
+          <input type="number" id="quantity" name="quantity" min="1" value="3">
+          <!-- Блок для сообщения об ошибке -->
+          <div id="quantity-error" style="color: #C2410C; font-weight: bold; margin-top: 0.5rem; display: none;">
+            Нельзя более 10 человек
+          </div>
+        </div>
+        
+        <p class="form-field">
+          <label for="notes">Пожелания к прогулке</label>
+          <textarea id="notes" name="notes" rows="4"
+                    placeholder="Опишите ваши пожелания"></textarea>
+        </p>
+      </fieldset>
+      
+      <p class="form-field">
+        <label for="route">Название маршрута</label>
+        <select id="route" name="route" required>
+          <option value="">Выберите из списка</option>
+          <option value="river">Берег реки</option>
+          <option value="mountain">Горный обзор</option>
+          <option value="forest">Лесная тропа</option>
+        </select>
+      </p>
+
+      <p class="form-field">
+        <label for="level">Темп прогулки</label>
+        <input id="level" name="level" type="range"
+               min="1" max="5" step="1" value="3">
+        <span>Спокойный</span> 
+        [ <span id="level-value">3</span> ] 
+        <span>Быстрый</span>
+      </p>
+
+      <p>
+        <input id="extra1" name="extra1" type="checkbox" value="yes" checked>
+        <label for="extra1">Нужен сопровождающий</label>
+      </p>
+
+      <p>
+        <input id="extra2" name="extra2" type="checkbox" value="yes">
+        <label for="extra2">Остановка для фотографий</label>
+      </p>
+      
+      <!-- Место для вывода сообщения при отправке -->
+      <p id="status" role="status" style="color: #245A91; font-weight: bold;"></p>
+      
+      
+      <button type="submit">Записаться</button>
+<p id="result" role="status" aria-live="polite" style="font-weight: bold; color: #245A91; margin-top: 1rem;"></p>
+    </form>
+
+    <p><a href="index.html">Назад</a></p>
+  </main>
+
+  <footer>
+    <p>Учебный прототип · Вариант 02</p>
+  </footer>
+  
+  <script src="form.js" defer></script>
+</body>
+</html>

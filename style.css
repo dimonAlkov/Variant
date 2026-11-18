@@ -1,0 +1,215 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  font-size: 1rem;
+  line-height: 1.5;
+  margin: 0;
+  padding: 0;
+  background-color: #EEF4FC; 
+  color: #19324D; 
+}
+
+/* --- ШАПКА --- */
+header {
+  position: relative;
+  width: 100%;
+}
+
+header::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 70px;
+  background-color: #204E7A; 
+  z-index: -1;
+}
+
+header h1 {
+  width: 92%;
+  max-width: 56rem;
+  margin: 0 auto;
+  padding: 1.25rem 1rem; 
+  color: #ffffff;
+  font-size: 1.5rem;
+}
+
+header p {
+  width: 92%;
+  max-width: 56rem;
+  margin: 0 auto;
+  padding: 0 1rem 1rem 1rem;
+}
+
+/* --- МЕНЮ --- */
+nav {
+  width: 92%;
+  max-width: 56rem;
+  margin: 0 auto;
+  padding: 1rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+nav a {
+  display: block;
+  padding: 0.5rem 1rem;
+  color: #204E7A;
+  background-color: #ffffff;
+  border: 1px solid #204E7A;
+  border-radius: 4px;
+  text-decoration: none;
+}
+
+nav a:hover {
+  text-decoration: underline;
+}
+
+/* --- ОСНОВНОЙ КОНТЕНТ --- */
+main.page,
+footer {
+  width: 92%;
+  max-width: 56rem;
+  margin: 0 auto;
+  padding: 1rem;
+}
+
+h1, h2 {
+  color: #204E7A; 
+}
+
+a {
+  color: #204E7A;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* --- КАРТОЧКИ КАТАЛОГА (СИНЯЯ И ЖЕЛТАЯ ПЛАШКИ) --- */
+.card {
+  background-color: #FFFFFF; 
+  border-radius: 0.5rem; 
+  border: 1px solid #204E7A; /* Синяя рамка карточки */
+  padding: 1rem;
+  margin-bottom: 1.5rem;
+  overflow: hidden; /* Чтобы плашки не вылезали за скругления */
+}
+
+.card h2 {
+  margin-top: 0;
+  margin-bottom: 1rem;
+}
+
+.card img {
+  display: block;
+  width: 100%;
+  max-width: 18rem;
+  margin-bottom: 1rem;
+}
+
+/* Первый абзац с текстом (синяя плашка) */
+.card p:nth-of-type(1) {
+  background-color: #204E7A; 
+  color: #ffffff;
+  font-weight: bold;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  margin-bottom: 0.5rem;
+}
+
+/* Второй абзац с текстом (желтая плашка) */
+.card p:nth-of-type(2) {
+  background-color: #FFF8E7; 
+  color: #4a3a22;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  margin-bottom: 0;
+}
+
+/* --- ФОРМА --- */
+.request-form {
+  background-color: #FFFFFF;
+  border: 1px solid #94A3B8;
+  border-radius: 0.5rem;
+  padding: 1rem;
+}
+
+fieldset {
+  border: none;
+  padding: 0;
+  margin: 0;
+}
+
+legend {
+  font-weight: bold;
+  font-size: 1.25rem;
+  color: #204E7A;
+  margin-bottom: 1rem;
+  padding: 0;
+}
+
+.form-field {
+  margin: 0 0 1rem;
+}
+
+.form-field > label {
+  display: block;
+  margin-bottom: 0.35rem;
+  font-weight: bold;
+}
+
+.request-form input,
+.request-form select,
+.request-form textarea,
+.request-form button {
+  font: inherit;
+}
+
+.request-form select,
+.request-form input[type="number"],
+.request-form textarea {
+  width: 100%;
+  padding: 0.6rem;
+  border: 1px solid #64748B;
+  border-radius: 0.35rem;
+}
+
+.request-form input[type="range"] {
+  width: 100%;
+}
+
+.request-form textarea {
+  resize: vertical;
+}
+
+.request-form button {
+  padding: 0.65rem 1rem;
+  border: 2px solid #204E7A;
+  border-radius: 0.35rem;
+  background-color: #204E7A;
+  color: #FFFFFF;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+/* --- ФОКУС ПРИ РАБОТЕ С КЛАВИАТУРЫ --- */
+a:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible,
+button:focus-visible {
+  outline: 3px solid #C2410C; 
+  outline-offset: 3px;
+}
+
+footer {
+  margin-top: 2rem;
+  padding-bottom: 2rem;
+}
