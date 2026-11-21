@@ -1,26 +1,29 @@
-// 1. МАССИВ КАРТОЧЕК (переносим из catalog.js)
+// 1. МАССИВ КАРТОЧЕК
 const catalog = [
   {
     position: 1,
     name: "Берег реки",
     specs: "5 км · средний маршрут",
-    description: "Дорожка вдоль воды и место отдыха"
+    description: "Дорожка вдоль воды и место отдыха",
+    image: "Lake.jpg" // Добавили картинку
   },
   {
     position: 2,
     name: "Горный обзор",
     specs: "7 км · сложный маршрут",
-    description: "Подъём и панорама с высоты"
+    description: "Подъём и панорама с высоты",
+    image: "glav.jfif" // Добавили картинку
   },
   {
     position: 3,
     name: "Лесная тропа",
     specs: "3 км · лёгкий маршрут",
-    description: "Тень деревьев и тихая прогулка"
+    description: "Тень деревьев и тихая прогулка",
+    image: "forest.jpg" // Добавили картинку
   }
 ];
 
-// 2. ФУНКЦИЯ ФИЛЬТРАЦИИ (из пары 22)
+// 2. ФУНКЦИЯ ФИЛЬТРАЦИИ
 function filterByText(items, query) {
   const normalized = query.trim().toLowerCase();
   if (normalized === "") return items;
@@ -33,30 +36,36 @@ const statusText = document.querySelector("#status");
 
 // 4. ФУНКЦИЯ СОЗДАНИЯ КАРТОЧЕК
 function renderCatalog(items) {
-  // Очищаем контейнер перед новым выводом (чтобы не дублировались)
+  // Очищаем контейнер перед новым выводом
   catalogList.replaceChildren();
   
-  // Перебираем массив и создаем HTML-элементы
   for (const item of items) {
     const card = document.createElement("article");
-    card.className = "card"; // Применяем ваш класс для красоты
+    card.className = "card"; 
     
+    // --- ДОБАВЛЕНО: Создаем картинку ---
+    const img = document.createElement("img");
+    img.src = item.image; // Берем имя файла из массива
+    img.alt = item.name;  // Текст, если картинка не загрузится
+    img.width = 400;      // Ширина картинки
+    img.style.borderRadius = "8px"; // Скругляем углы для красоты
+    img.style.marginBottom = "1rem";
+    // ------------------------------------
+
     const title = document.createElement("h2");
     title.textContent = item.name;
     
     const specs = document.createElement("p");
     specs.textContent = item.specs;
     
-    // Дописываем то, чего не хватало в задании:
     const description = document.createElement("p");
     description.textContent = item.description;
     
-    // Собираем карточку и вставляем её на страницу
-    card.append(title, specs, description);
+    // Собираем карточку: картинка вставляется в самое начало (перед заголовком)
+    card.append(img, title, specs, description);
     catalogList.append(card);
   }
   
-  // Обновляем счетчик
   if (items.length === 0) {
     statusText.textContent = "Ничего не найдено";
   } else {
@@ -64,13 +73,13 @@ function renderCatalog(items) {
   }
 }
 
-// 5. ПЕРВЫЙ ВЫВОД ВСЕХ КАРТОЧЕК (при загрузке страницы)
+// 5. ПЕРВЫЙ ВЫВОД
 renderCatalog(catalog);
 
-// 6. СВЯЗЫВАЕМ ПОИСК С ФИЛЬТРОМ
+// 6. СВЯЗЫВАЕМ ПОИСК
 const searchInput = document.querySelector("#search");
 
 searchInput.addEventListener("input", function () {
   const found = filterByText(catalog, searchInput.value);
-  renderCatalog(found); // Передаем отфильтрованные данные
+  renderCatalog(found); 
 });
