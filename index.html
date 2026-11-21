@@ -11,6 +11,8 @@
 <body>
   <header>
     <h1>На тропе · точный учебный вариант</h1>
+    <!-- ДОБАВЛЕНО: Отметка учебной версии 1 -->
+    <p>Учебная версия 1</p>
 
     <nav>
       <a href="index.html">самая Главная</a>
@@ -23,7 +25,7 @@
 
   <main class="page">
     <h2>Маршруты выходного дня</h2>
-    
+
     <!-- Абзац для вывода статуса -->
     <p id="status" role="status"></p>
     <button id="show-names" type="button">Показать названия</button>
@@ -37,14 +39,23 @@
 
     <p><a href="catalog.html">Открыть каталог</a></p>
 
-    
+
   </main>
 
   <footer>
     <p>Учебный прототип · Вариант 02</p>
   </footer>
-  
+
   <!-- Подключение скрипта -->
   <script src="catalog.js" defer></script>
+
+  <!-- ДОБАВЛЕНО: Регистрация Service Worker для офлайн-режима -->
+  <script>
+    if ("serviceWorker" in navigator) {
+      navigator.serviceWorker.register("./sw.js").catch((error) => {
+        console.error("Не удалось зарегистрировать service worker:", error);
+      });
+    }
+  </script>
 </body>
 </html>

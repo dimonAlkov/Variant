@@ -88,5 +88,14 @@
   </footer>
   
   <script src="form.js" defer></script>
+
+  <!-- ДОБАВЛЕНО: Регистрация Service Worker для офлайн-режима -->
+  <script>
+    if ("serviceWorker" in navigator) {
+      navigator.serviceWorker.register("./sw.js").catch((error) => {
+        console.error("Не удалось зарегистрировать service worker:", error);
+      });
+    }
+  </script>
 </body>
 </html>
